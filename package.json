@@ -1,0 +1,23 @@
+{
+  "name": "toban-lp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "serve out",
+    "lint": "yarn run biome lint ./src",
+    "lint:fix": "yarn run biome lint ./src --write",
+    "lint:fix:css": "stylelint --fix \"**/*.{js,jsx,ts,tsx}\"",
+    "format": "yarn run biome format ./src --write",
+    "check": "yarn run biome check ./src",
+    "clean": "yarn run biome check ./src --write",
+    "build-storybook": "storybook build"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "packageManager": "yarn@3.2.4",
+  "license": "MIT"
+}
