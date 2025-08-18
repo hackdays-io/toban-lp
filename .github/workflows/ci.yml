@@ -39,9 +39,6 @@ jobs:
     - name: Build application
       run: yarn build
       # env:
-      #   NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
-      #   NEXT_PUBLIC_AIRTABLE_BASE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_BASE }}
-      #   NEXT_PUBLIC_AIRTABLE_TABLE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_TABLE }}
 
   security-check:
     runs-on: ubuntu-latest
