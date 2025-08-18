@@ -1,0 +1,22 @@
+# Global code owners
+# すべてのファイルのデフォルトオーナー
+* @hackdays-io/frontend-team
+
+# Frontend specific areas
+/src/components/ @hackdays-io/frontend-team
+/src/pages/ @hackdays-io/frontend-team
+/src/themes/ @hackdays-io/frontend-team
+
+# Configuration files
+package.json @hackdays-io/devops-team
+yarn.lock @hackdays-io/devops-team
+tsconfig.json @hackdays-io/frontend-team
+next.config.ts @hackdays-io/frontend-team
+biome.json @hackdays-io/frontend-team
+
+# GitHub workflows and templates
+/.github/ @hackdays-io/devops-team
+
+# Documentation
+README.md @hackdays-io/frontend-team
+*.md @hackdays-io/frontend-team
