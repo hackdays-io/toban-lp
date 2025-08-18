@@ -1,53 +1,9 @@
-name: Deploy site
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ "main" ]
   workflow_dispatch:
-
-jobs:
-  ci:
-    uses: ./.github/workflows/_setup.yml
-
-  build-page:
-    runs-on: ubuntu-latest
-    needs: ci
-    steps:
-      - uses: actions/checkout@v4
-      - id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-      - uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ${{ github.workspace }}/node_modules
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-nodemodules
-      - name: build
-        run: yarn build
-        env:
-          NODE_ENV: production
-          NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
-          NEXT_PUBLIC_AIRTABLE_BASE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_BASE }}
-          NEXT_PUBLIC_AIRTABLE_TABLE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_TABLE }}
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build-page
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
 
 permissions:
   contents: read
@@ -58,146 +14,130 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# name: Deploy to GitHub Pages
-
-# on:
-#   push:
-#     branches: [ "main" ]
-#   workflow_dispatch:
-
-# permissions:
-#   contents: read
-#   pages: write
-#   id-token: write
-
-# concurrency:
-#   group: "pages"
-#   cancel-in-progress: false
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
         
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: '18'
-#           cache: 'yarn'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
           
-#       - name: Setup Pages
-#         uses: actions/configure-pages@v4
-#         with:
-#           static_site_generator: next
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
           
-#       - name: Restore cache
-#         uses: actions/cache@v4
-#         with:
-#           path: |
-#             .next/cache
-#           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-#           restore-keys: |
-#             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
             
-#       - name: Install dependencies
-#         run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
         
-#       - name: Build with Next.js
-#         run: |
-#           echo "Starting Next.js build process..."
-#           echo "Checking for config file conflicts..."
-#           ls -la next.config.*
+      - name: Build with Next.js
+        run: |
+          echo "Starting Next.js build process..."
+          echo "Checking for config file conflicts..."
+          ls -la next.config.*
           
-#           # Remove any conflicting next.config.js if it exists
-#           if [ -f "next.config.js" ]; then
-#             echo "Removing conflicting next.config.js"
-#             rm next.config.js
-#           fi
+          # Remove any conflicting next.config.js if it exists
+          if [ -f "next.config.js" ]; then
+            echo "Removing conflicting next.config.js"
+            rm next.config.js
+          fi
           
-#           echo "Current next.config.ts content:"
-#           cat next.config.ts
+          echo "Current next.config.ts content:"
+          cat next.config.ts
           
-#           echo "Running yarn build..."
-#           yarn build
+          echo "Running yarn build..."
+          yarn build
           
-#           echo "Build completed. Checking output directory..."
-#           if [ -d "./out" ]; then
-#             echo "✅ out directory exists"
-#             ls -la ./out/
-#           else
-#             echo "❌ out directory not found"
-#             echo "Available directories:"
-#             ls -la ./
-#             echo "Checking .next directory:"
-#             ls -la .next/ 2>/dev/null || echo "No .next directory"
+          echo "Build completed. Checking output directory..."
+          if [ -d "./out" ]; then
+            echo "✅ out directory exists"
+            ls -la ./out/
+          else
+            echo "❌ out directory not found"
+            echo "Available directories:"
+            ls -la ./
+            echo "Checking .next directory:"
+            ls -la .next/ 2>/dev/null || echo "No .next directory"
             
-#             echo "Trying manual static export..."
-#             rm -rf .next out
-#             NODE_ENV=production yarn next build
+            echo "Trying manual static export..."
+            rm -rf .next out
+            NODE_ENV=production yarn next build
             
-#             echo "After rebuild, checking directories:"
-#             ls -la ./
+            echo "After rebuild, checking directories:"
+            ls -la ./
             
-#             if [ ! -d "./out" ]; then
-#               echo "Static export still failed. Checking Next.js export structure..."
-#               echo "Searching for static files in .next:"
-#               find .next -name "*.html" -type f || echo "No HTML files found"
+            if [ ! -d "./out" ]; then
+              echo "Static export still failed. Checking Next.js export structure..."
+              echo "Searching for static files in .next:"
+              find .next -name "*.html" -type f || echo "No HTML files found"
               
-#               echo "Manual export attempt..."
-#               mkdir -p out
+              echo "Manual export attempt..."
+              mkdir -p out
               
-#               # Copy static assets
-#               if [ -d ".next/static" ]; then
-#                 echo "Copying .next/static to out/_next/static"
-#                 mkdir -p out/_next
-#                 cp -r .next/static out/_next/
-#               fi
+              # Copy static assets
+              if [ -d ".next/static" ]; then
+                echo "Copying .next/static to out/_next/static"
+                mkdir -p out/_next
+                cp -r .next/static out/_next/
+              fi
               
-#               # Copy server-generated pages
-#               if [ -d ".next/server/pages" ]; then
-#                 echo "Copying server pages"
-#                 find .next/server/pages -name "*.html" -exec cp {} out/ \;
-#               fi
+              # Copy server-generated pages
+              if [ -d ".next/server/pages" ]; then
+                echo "Copying server pages"
+                find .next/server/pages -name "*.html" -exec cp {} out/ \;
+              fi
               
-#               # Copy standalone pages if they exist
-#               if [ -d ".next/standalone" ]; then
-#                 echo "Copying standalone files"
-#                 cp -r .next/standalone/* out/ 2>/dev/null || echo "No standalone files"
-#               fi
+              # Copy standalone pages if they exist
+              if [ -d ".next/standalone" ]; then
+                echo "Copying standalone files"
+                cp -r .next/standalone/* out/ 2>/dev/null || echo "No standalone files"
+              fi
               
-#               echo "Final out directory contents:"
-#               ls -la ./out/
-#             fi
-#           fi
-#         env:
-#           NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
-#           NEXT_PUBLIC_AIRTABLE_BASE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_BASE }}
-#           NEXT_PUBLIC_AIRTABLE_TABLE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_TABLE }}
+              echo "Final out directory contents:"
+              ls -la ./out/
+            fi
+          fi
+        env:
+          NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
+          NEXT_PUBLIC_AIRTABLE_BASE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_BASE }}
+          NEXT_PUBLIC_AIRTABLE_TABLE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_TABLE }}
         
-#       - name: Check if out directory exists before upload
-#         run: |
-#           if [ ! -d "./out" ]; then
-#             echo "❌ Error: out directory does not exist"
-#             echo "Current directory contents:"
-#             ls -la ./
-#             exit 1
-#           fi
-#           echo "✅ out directory confirmed, proceeding with upload"
+      - name: Check if out directory exists before upload
+        run: |
+          if [ ! -d "./out" ]; then
+            echo "❌ Error: out directory does not exist"
+            echo "Current directory contents:"
+            ls -la ./
+            exit 1
+          fi
+          echo "✅ out directory confirmed, proceeding with upload"
           
-#       - name: Upload artifact
-#         uses: actions/upload-pages-artifact@v3
-#         with:
-#           path: ./out
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
 
-#   deploy:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
-#       - name: Deploy to GitHub Pages
-#         id: deployment
-#         uses: actions/deploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
