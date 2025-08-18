@@ -1,0 +1,2 @@
+# GitHub CODEOWNERS file should not be treated as Dockerfile
+.github/CODEOWNERS linguist-language=Text

@@ -25,6 +25,6 @@
     "enabled": true
   },
   "files": {
-    "ignore": [".next/**", "node_modules/**", "out/**", ".yarn/**"]
+    "ignore": [".next/**", "node_modules/**", "out/**", ".yarn/**", ".github/**"]
   }
 }
