@@ -47,7 +47,21 @@ jobs:
       - name: Build with Next.js
         run: |
           echo "Starting Next.js build process..."
+          echo "Checking for config file conflicts..."
+          ls -la next.config.*
+          
+          # Remove any conflicting next.config.js if it exists
+          if [ -f "next.config.js" ]; then
+            echo "Removing conflicting next.config.js"
+            rm next.config.js
+          fi
+          
+          echo "Current next.config.ts content:"
+          cat next.config.ts
+          
+          echo "Running yarn build..."
           yarn build
+          
           echo "Build completed. Checking output directory..."
           if [ -d "./out" ]; then
             echo "✅ out directory exists"
@@ -56,10 +70,46 @@ jobs:
             echo "❌ out directory not found"
             echo "Available directories:"
             ls -la ./
-            echo "Trying alternative build methods..."
+            echo "Checking .next directory:"
+            ls -la .next/ 2>/dev/null || echo "No .next directory"
+            
+            echo "Trying manual static export..."
             rm -rf .next out
-            NODE_ENV=production yarn next build || echo "Alternative build failed"
+            NODE_ENV=production yarn next build
+            
+            echo "After rebuild, checking directories:"
             ls -la ./
+            
+            if [ ! -d "./out" ]; then
+              echo "Static export still failed. Checking Next.js export structure..."
+              echo "Searching for static files in .next:"
+              find .next -name "*.html" -type f || echo "No HTML files found"
+              
+              echo "Manual export attempt..."
+              mkdir -p out
+              
+              # Copy static assets
+              if [ -d ".next/static" ]; then
+                echo "Copying .next/static to out/_next/static"
+                mkdir -p out/_next
+                cp -r .next/static out/_next/
+              fi
+              
+              # Copy server-generated pages
+              if [ -d ".next/server/pages" ]; then
+                echo "Copying server pages"
+                find .next/server/pages -name "*.html" -exec cp {} out/ \;
+              fi
+              
+              # Copy standalone pages if they exist
+              if [ -d ".next/standalone" ]; then
+                echo "Copying standalone files"
+                cp -r .next/standalone/* out/ 2>/dev/null || echo "No standalone files"
+              fi
+              
+              echo "Final out directory contents:"
+              ls -la ./out/
+            fi
           fi
         env:
           NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
