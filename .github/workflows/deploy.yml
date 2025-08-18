@@ -45,19 +45,37 @@ jobs:
         run: yarn install --frozen-lockfile
         
       - name: Build with Next.js
-        run: yarn build
+        run: |
+          echo "Starting Next.js build process..."
+          yarn build
+          echo "Build completed. Checking output directory..."
+          if [ -d "./out" ]; then
+            echo "✅ out directory exists"
+            ls -la ./out/
+          else
+            echo "❌ out directory not found"
+            echo "Available directories:"
+            ls -la ./
+            echo "Trying alternative build methods..."
+            rm -rf .next out
+            NODE_ENV=production yarn next build || echo "Alternative build failed"
+            ls -la ./
+          fi
         env:
           NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
           NEXT_PUBLIC_AIRTABLE_BASE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_BASE }}
           NEXT_PUBLIC_AIRTABLE_TABLE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_TABLE }}
         
-      - name: Verify build output
+      - name: Check if out directory exists before upload
         run: |
-          echo "Checking if out directory exists:"
-          ls -la ./
-          echo "Contents of out directory (if exists):"
-          ls -la ./out/ || echo "out directory not found"
-        
+          if [ ! -d "./out" ]; then
+            echo "❌ Error: out directory does not exist"
+            echo "Current directory contents:"
+            ls -la ./
+            exit 1
+          fi
+          echo "✅ out directory confirmed, proceeding with upload"
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
