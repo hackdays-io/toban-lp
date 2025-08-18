@@ -46,6 +46,17 @@ jobs:
         
       - name: Build with Next.js
         run: yarn build
+        env:
+          NEXT_PUBLIC_AIRTABLE_PAT: ${{ secrets.NEXT_PUBLIC_AIRTABLE_PAT }}
+          NEXT_PUBLIC_AIRTABLE_BASE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_BASE }}
+          NEXT_PUBLIC_AIRTABLE_TABLE: ${{ secrets.NEXT_PUBLIC_AIRTABLE_TABLE }}
+        
+      - name: Verify build output
+        run: |
+          echo "Checking if out directory exists:"
+          ls -la ./
+          echo "Contents of out directory (if exists):"
+          ls -la ./out/ || echo "out directory not found"
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
