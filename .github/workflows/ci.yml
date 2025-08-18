@@ -25,16 +25,16 @@ jobs:
         cache: 'yarn'
 
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --immutable
 
     - name: Run linter
       run: yarn lint
 
     - name: Run type check
-      run: yarn tsc --noEmit
+      run: yarn exec tsc --noEmit
 
     - name: Run format check
-      run: yarn biome format ./src --check
+      run: yarn exec biome format ./src --check
 
     - name: Build application
       run: yarn build
@@ -50,4 +50,4 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Run security audit
-      run: yarn audit --level moderate
+      run: yarn npm audit --severity moderate

@@ -15,6 +15,21 @@
     "clean": "yarn run biome check ./src --write",
     "build-storybook": "storybook build"
   },
+  "dependencies": {
+    "@emotion/react": "^11.0.0",
+    "next": "^15.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "serve": "^14.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "lint-staged": "^15.0.0",
+    "typescript": "^5.0.0"
+  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
