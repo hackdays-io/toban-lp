@@ -1,6 +1,6 @@
-* @yosukemiyata
-/src/ @yosukemiyata
-/public/ @yosukemiyata
+* @yosukemiyata @hackdays-io/frontend-team
+/src/ @yosukemiyata @hackdays-io/frontend-team
+/public/ @yosukemiyata @hackdays-io/frontend-team
 # # This is a GitHub CODEOWNERS file, not a Dockerfile
 # # GitHub CODEOWNERSファイルです（Dockerfileではありません）
 # # Global code owners
