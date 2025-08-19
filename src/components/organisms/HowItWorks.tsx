@@ -92,9 +92,9 @@ export default function HowItWorks() {
           setIsVisible(true);
         }
       },
-      { 
-        threshold: isMobile ? 0.05 : 0.1, 
-        rootMargin: isMobile ? "100px" : "50px" 
+      {
+        threshold: isMobile ? 0.05 : 0.1,
+        rootMargin: isMobile ? "100px" : "50px",
       },
     );
 
@@ -363,7 +363,9 @@ export default function HowItWorks() {
                       fontSize: "2.5rem",
                       color: "rgba(255, 255, 255, 0.9)",
                       opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "translateY(0)" : "translateY(-10px)",
+                      transform: isVisible
+                        ? "translateY(0)"
+                        : "translateY(-10px)",
                       transition: `all 0.8s ease ${index * 0.1 + 0.3}s`,
                       textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
                       fontWeight: "bold",

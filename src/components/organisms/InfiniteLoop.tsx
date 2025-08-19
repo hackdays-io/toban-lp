@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import type React from "react";
+import { useState } from "react";
 
 interface LogoItem {
   name: string;
@@ -11,12 +12,12 @@ const InfiniteLoop: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const logoItems: LogoItem[] = [
-    { name: 'Comoris' },
-    { name: '塩尻DAO' },
-    { name: 'ento' },
-    { name: 'ETH Tokyo' },
-    { name: 'Fracton' },
-    { name: 'Localcoop' },
+    { name: "Comoris" },
+    { name: "塩尻DAO" },
+    { name: "ento" },
+    { name: "ETH Tokyo" },
+    { name: "Fracton" },
+    { name: "Localcoop" },
   ];
 
   const handleSpeedChange = (speed: number) => {
@@ -29,31 +30,31 @@ const InfiniteLoop: React.FC = () => {
 
   const containerClasses = `
     infinite-loop-container
-    ${isPaused || isHovered ? 'paused' : ''}
+    ${isPaused || isHovered ? "paused" : ""}
   `.trim();
 
   return (
-    <div >      
-      <div 
+    <div>
+      <div
         className={containerClasses}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="scroll-wrapper">
-          <div 
+          <div
             className="logo-track"
             style={{ animationDuration: `${currentSpeed}s` }}
           >
             {/* 第1セット */}
-            {logoItems.map((item, index) => (
-              <div key={`first-${index}`} className="logo-item">
+            {logoItems.map((item) => (
+              <div key={`first-${item.name}`} className="logo-item">
                 {item.name}
               </div>
             ))}
-            
+
             {/* 第2セット（シームレスなループ用） */}
-            {logoItems.map((item, index) => (
-              <div key={`second-${index}`} className="logo-item">
+            {logoItems.map((item) => (
+              <div key={`second-${item.name}`} className="logo-item">
                 {item.name}
               </div>
             ))}

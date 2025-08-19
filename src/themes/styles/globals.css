@@ -734,10 +734,7 @@ ol li span {
   height: 48px;
   padding: 0 20px;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -843,7 +840,8 @@ a.secondary {
     box-sizing: border-box !important;
   }
 
-  html, body {
+  html,
+  body {
     width: 100% !important;
     max-width: 100vw !important;
     overflow-x: hidden !important;
@@ -952,7 +950,9 @@ a.secondary {
   }
 
   /* Flex系レイアウトの調整 */
-  div[style*="display: flex"]:not(.logo-track-container):not(.infinite-loop-wrapper) {
+  div[style*="display: flex"]:not(.logo-track-container):not(
+      .infinite-loop-wrapper
+    ) {
     flex-wrap: wrap !important;
     width: 100% !important;
     max-width: calc(100vw - 32px) !important;
