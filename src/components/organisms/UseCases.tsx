@@ -125,8 +125,9 @@ export default function UseCases() {
 
         <div style={gridStyle}>
           {cases.map((item, index) => (
-            <div
+            <button
               key={item.id}
+              type="button"
               style={{
                 ...cardStyle,
                 transform:
@@ -140,6 +141,8 @@ export default function UseCases() {
                 background: hoveredCard === index ? item.gradient : "white",
                 height: selectedCard === index ? "auto" : "400px",
                 minHeight: selectedCard === index ? "600px" : "400px",
+                border: "none",
+                cursor: "pointer",
               }}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -152,8 +155,6 @@ export default function UseCases() {
                   setSelectedCard(selectedCard === index ? null : index);
                 }
               }}
-              tabIndex={0}
-              role="button"
               aria-expanded={selectedCard === index}
             >
               <div
@@ -355,7 +356,7 @@ export default function UseCases() {
                   <div style={decoration2Style} />
                 </div>
               )}
-            </div>
+            </button>
           ))}
         </div>
       </div>

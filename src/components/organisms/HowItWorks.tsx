@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import React from "react";
 import { useState, useEffect } from "react";
 
 export default function HowItWorks() {
@@ -386,7 +386,8 @@ export default function HowItWorks() {
 
         {/* 画像拡大モーダル */}
         {modalImage && (
-          <div
+          <dialog
+            open
             style={modalOverlayStyle}
             onClick={() => setModalImage(null)}
             onKeyDown={(e) => {
@@ -394,8 +395,6 @@ export default function HowItWorks() {
                 setModalImage(null);
               }
             }}
-            role="dialog"
-            aria-modal="true"
           >
             <div
               style={modalContentStyle}
@@ -419,7 +418,7 @@ export default function HowItWorks() {
               </button>
               <img src={modalImage} alt="拡大表示" style={modalImageStyle} />
             </div>
-          </div>
+          </dialog>
         )}
       </div>
     </section>

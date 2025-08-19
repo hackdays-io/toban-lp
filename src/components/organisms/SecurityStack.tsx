@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useState, useEffect } from "react";
 
 export default function SecurityStack() {
   const [isVisible, setIsVisible] = useState(false);
@@ -115,7 +116,7 @@ export default function SecurityStack() {
         >
           {securityFeatures.map((feature, index) => (
             <div
-              key={index}
+              key={feature.text}
               style={{
                 ...featureItemStyle,
                 ...(isVisible
@@ -160,7 +161,7 @@ export default function SecurityStack() {
         >
           {protocols.map((protocol, index) => (
             <div
-              key={index}
+              key={protocol.name}
               style={{
                 ...protocolCardStyle,
                 borderColor: hoveredCard === index ? protocol.color : "#e2e8f0",
