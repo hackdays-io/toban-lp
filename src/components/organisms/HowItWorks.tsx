@@ -61,14 +61,29 @@ export default function HowItWorks() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      // モバイル切り替え時にアニメーションをリセット
+      if (mobile !== isMobile) {
+        setIsVisible(false);
+        setTimeout(() => {
+          const element = document.getElementById("how-it-works");
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            if (rect.top < windowHeight && rect.bottom > 0) {
+              setIsVisible(true);
+            }
+          }
+        }, 100);
+      }
     };
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
 
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -77,7 +92,10 @@ export default function HowItWorks() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 },
+      { 
+        threshold: isMobile ? 0.05 : 0.1, 
+        rootMargin: isMobile ? "100px" : "50px" 
+      },
     );
 
     const element = document.getElementById("how-it-works");
@@ -90,7 +108,7 @@ export default function HowItWorks() {
         observer.unobserve(element);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     if (isVisible && !isMobile) {
@@ -162,7 +180,7 @@ export default function HowItWorks() {
                         : "#e2e8f0",
                     transform: isVisible ? "translateY(0)" : "translateY(30px)",
                     opacity: isVisible ? 1 : 0,
-                    transition: `all 0.6s ease ${index * 0.2}s`,
+                    transition: `all 0.8s ease ${index * 0.1}s`,
                     padding: isMobile ? "20px" : "25px 20px",
                     minHeight: isMobile ? "auto" : "500px",
                     width: "100%",
@@ -319,7 +337,7 @@ export default function HowItWorks() {
                         transform: isVisible
                           ? "translateX(0)"
                           : "translateX(-10px)",
-                        transition: `all 0.6s ease ${index * 0.2 + 0.3}s`,
+                        transition: `all 0.8s ease ${index * 0.1 + 0.2}s`,
                       }}
                     >
                       →
@@ -340,27 +358,20 @@ export default function HowItWorks() {
                     position: "relative",
                   }}
                 >
-                  <div
+                  <span
                     style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      backgroundColor: "rgba(255, 255, 255, 0.15)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1.8rem",
-                      color: "white",
+                      fontSize: "2.5rem",
+                      color: "rgba(255, 255, 255, 0.9)",
                       opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "scale(1)" : "scale(0.8)",
-                      transition: `all 0.6s ease ${index * 0.2 + 0.5}s`,
-                      backdropFilter: "blur(10px)",
-                      border: "1px solid rgba(255, 255, 255, 0.2)",
-                      boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+                      transform: isVisible ? "translateY(0)" : "translateY(-10px)",
+                      transition: `all 0.8s ease ${index * 0.1 + 0.3}s`,
+                      textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
+                      fontWeight: "bold",
+                      lineHeight: 1,
                     }}
                   >
                     ↓
-                  </div>
+                  </span>
                 </div>
               )}
             </React.Fragment>
@@ -430,6 +441,8 @@ const sectionStyle: React.CSSProperties = {
   background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
   color: "white",
   overflow: "hidden",
+  minHeight: "100vh",
+  position: "relative",
 };
 
 const containerStyle: React.CSSProperties = {
