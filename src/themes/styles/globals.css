@@ -1,0 +1,623 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 無限ループアニメーション */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* モダンコンポーネント用アニメーション */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes countUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(15px, -15px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-10px, 10px) rotate(240deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+/* ステップスクロールアニメーション */
+@keyframes scrollStep {
+  0% {
+    transform: translateX(0);
+  }
+  8.33% {
+    transform: translateX(calc(-220px * 1));
+  }
+  16.66% {
+    transform: translateX(calc(-220px * 1));
+  }
+  25% {
+    transform: translateX(calc(-220px * 2));
+  }
+  33.33% {
+    transform: translateX(calc(-220px * 2));
+  }
+  41.66% {
+    transform: translateX(calc(-220px * 3));
+  }
+  50% {
+    transform: translateX(calc(-220px * 3));
+  }
+  58.33% {
+    transform: translateX(calc(-220px * 4));
+  }
+  66.66% {
+    transform: translateX(calc(-220px * 4));
+  }
+  75% {
+    transform: translateX(calc(-220px * 5));
+  }
+  83.33% {
+    transform: translateX(calc(-220px * 5));
+  }
+  91.66% {
+    transform: translateX(calc(-220px * 6));
+  }
+  100% {
+    transform: translateX(calc(-220px * 6));
+  }
+}
+
+/* レスポンシブ対応のステップスクロール */
+@media (max-width: 768px) {
+  @keyframes scrollStep {
+    0% {
+      transform: translateX(0);
+    }
+    8.33% {
+      transform: translateX(calc(-160px * 1));
+    }
+    16.66% {
+      transform: translateX(calc(-160px * 1));
+    }
+    25% {
+      transform: translateX(calc(-160px * 2));
+    }
+    33.33% {
+      transform: translateX(calc(-160px * 2));
+    }
+    41.66% {
+      transform: translateX(calc(-160px * 3));
+    }
+    50% {
+      transform: translateX(calc(-160px * 3));
+    }
+    58.33% {
+      transform: translateX(calc(-160px * 4));
+    }
+    66.66% {
+      transform: translateX(calc(-160px * 4));
+    }
+    75% {
+      transform: translateX(calc(-160px * 5));
+    }
+    83.33% {
+      transform: translateX(calc(-160px * 5));
+    }
+    91.66% {
+      transform: translateX(calc(-160px * 6));
+    }
+    100% {
+      transform: translateX(calc(-160px * 6));
+    }
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Use case marquee - 自然な無限ループ */
+.usecase-marquee {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: #f9fafb;
+  padding: 24px 0;
+}
+
+.usecase-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  white-space: nowrap;
+  animation: usecase-scroll 20s linear infinite;
+  width: 200%; /* シンプルに200%に戻す */
+}
+
+.usecase-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  flex-shrink: 0;
+  min-width: 220px; /* 幅を調整して6個すべて表示されるように */
+  justify-content: center;
+}
+
+.usecase-logo {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.usecase-name {
+  font-size: 14px;
+  color: #374151;
+}
+
+.usecase-logo-img {
+  object-fit: contain;
+}
+
+/* ホバー時の一時停止 */
+.usecase-marquee:hover .usecase-track {
+  animation-play-state: paused;
+}
+
+/* 自然な無限ループアニメーション */
+@keyframes usecase-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ランディングページ用スタイル */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 0 1rem; */
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section.hero {
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+ul,
+ol {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  min-width: 140px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.hero-buttons .btn-primary {
+  background-color: #f4b520;
+  color: #fff;
+}
+
+.hero-buttons .btn-secondary {
+  background-color: #eee;
+  color: #222;
+}
+
+/* ヒーローコンテンツ: 画像とボタンを重ねる */
+.hero-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ボタンを画像上に重ねて中央配置 */
+.hero-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+}
+
+/* ヒーロー画像のサイズ調整 */
+.hero-image {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.problem-grid,
+.case-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.problem-grid > div,
+.case-card {
+  flex: 1 1 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+ol li span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.pricing table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pricing th,
+.pricing td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.faq dl {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq dt {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #ccc;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .problem-grid,
+  .case-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    min-width: 180px;
+    max-width: 300px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* モバイル: 画像を画面幅いっぱいに */
+  .hero-image {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  /* モバイル用ユースケースマーキー */
+  .usecase-track {
+    gap: 20px;
+    animation: usecase-scroll 15s linear infinite; /* 同じアニメーション名に統一 */
+    width: 200%; /* シンプルに200%に統一 */
+  }
+
+  .usecase-item {
+    padding: 6px 12px;
+    gap: 8px;
+    min-width: 180px; /* 幅を増やして6個すべて表示されるように */
+  }
+
+  .usecase-name {
+    font-size: 12px;
+  }
+
+  /* モバイル: ProblemSolution 追加改善 */
+  section.problem {
+    padding: 40px 15px !important;
+  }
+
+  section.problem h2 {
+    font-size: 1.3rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 30px !important;
+  }
+
+  /* モバイル: HowItWorks 追加改善 */
+  section.how {
+    padding: 40px 15px !important;
+  }
+
+  section.how h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 35px !important;
+  }
+}
+
+/* PC: 画像のオリジナルサイズを最大として中央配置 */
+@media (min-width: 769px) {
+  .hero-image {
+    width: auto;
+    max-width: none;
+    max-height: 80vh;
+  }
+}
+
+/* セキュリティスタックのレスポンシブ対応 */
+.protocol-cards {
+  width: 100%;
+}
+
+/* デスクトップではカードを横並びで表示 */
+@media (min-width: 992px) {
+  .protocol-cards > div {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 24px !important;
+  }
+
+  .protocol-cards > div > div {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.casestudies .case-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.casestudies .case-card {
+  flex: 1 1 280px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  text-align: left;
+}
+
+.casestudies .case-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  height: 100px;
+}
+
+.casestudies .logo-image {
+  object-fit: contain;
+}
+
+.casestudies .logo-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.casestudies h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #22a186;
+}
+
+.casestudies .case-name {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.casestudies h4 {
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* TrackRecord セクションのスタイル */
+.trackrecord {
+  padding: 60px 36px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .casestudies .case-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .casestudies .case-card {
+    width: 90%;
+    max-width: 350px;
+    flex: none;
+  }
+}

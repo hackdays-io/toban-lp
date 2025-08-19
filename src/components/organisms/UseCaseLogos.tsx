@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 export default function UseCaseLogos() {
   const useCases = [
@@ -19,16 +19,19 @@ export default function UseCaseLogos() {
     <div className="usecase-marquee" aria-label="use cases">
       <div className="usecase-track">
         {marqueeItems.map((useCase, index) => (
-          <div className="usecase-item" key={index}>
-            <span className="usecase-name" style={{ fontSize: '1.5rem', fontWeight: '600' }}>
+          <div className="usecase-item" key={`${useCase.name}-${index}`}>
+            <span
+              className="usecase-name"
+              style={{ fontSize: "1.5rem", fontWeight: "600" }}
+            >
               {useCase.name}
             </span>
             {useCase.logoPath && (
               <img
-                src={useCase.logoPath} 
+                src={useCase.logoPath}
                 alt={`${useCase.name} logo`}
-                width={useCase.name === 'Localcoop' ? 120 : 60}
-                height={useCase.name === 'Localcoop' ? 40 : 60}
+                width={useCase.name === "Localcoop" ? 120 : 60}
+                height={useCase.name === "Localcoop" ? 40 : 60}
                 className="usecase-logo-img"
               />
             )}
