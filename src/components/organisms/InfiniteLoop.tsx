@@ -33,9 +33,7 @@ const InfiniteLoop: React.FC = () => {
   `.trim();
 
   return (
-    <div className="infinite-loop-wrapper">
-      <div className="infinite-loop-title">パートナー企業</div>
-      
+    <div >      
       <div 
         className={containerClasses}
         onMouseEnter={() => setIsHovered(true)}
@@ -61,33 +59,6 @@ const InfiniteLoop: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
-
-      <div className="controls">
-        <button 
-          className={`speed-control ${currentSpeed === 6 ? 'active' : ''}`}
-          onClick={() => handleSpeedChange(6)}
-        >
-          高速
-        </button>
-        <button 
-          className={`speed-control ${currentSpeed === 12 ? 'active' : ''}`}
-          onClick={() => handleSpeedChange(12)}
-        >
-          標準
-        </button>
-        <button 
-          className={`speed-control ${currentSpeed === 18 ? 'active' : ''}`}
-          onClick={() => handleSpeedChange(18)}
-        >
-          低速
-        </button>
-        <button 
-          className={`speed-control ${isPaused ? 'active' : ''}`}
-          onClick={togglePause}
-        >
-          {isPaused ? '再生' : '一時停止'}
-        </button>
       </div>
 
       <style jsx>{`
