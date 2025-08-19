@@ -11,12 +11,12 @@ const InfiniteLoop: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const logoItems: LogoItem[] = [
-    { name: 'Orange DAO' },
-    { name: 'Safe' },
-    { name: 'Raid Guild' },
-    { name: 'Green Pill' },
-    { name: 'Myosin' },
-    { name: 'Optimism' },
+    { name: 'Comoris' },
+    { name: '塩尻DAO' },
+    { name: 'ento' },
+    { name: 'ETH Tokyo' },
+    { name: 'Fracton' },
+    { name: 'Localcoop' },
   ];
 
   const handleSpeedChange = (speed: number) => {
@@ -80,7 +80,6 @@ const InfiniteLoop: React.FC = () => {
           overflow: hidden;
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(10px);
-          border-radius: 20px;
           padding: 40px 0;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
           position: relative;

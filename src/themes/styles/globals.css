@@ -898,7 +898,7 @@ a.secondary {
     width: 100vw !important;
     max-width: 100vw !important;
     margin: 0 !important;
-    padding: 20px 16px !important;
+    /* padding: 20px 16px !important; */
     box-sizing: border-box !important;
     display: flex !important;
     justify-content: center !important;
