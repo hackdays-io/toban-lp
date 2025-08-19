@@ -11,7 +11,7 @@ export default function CaseStudies() {
   const cases = [
     {
       name: "Comoris",
-      logoSrc: "/logo/comoris-logo.png",
+      logoSrc: "/assets/logo/comoris-logo.png",
       description: "沖縄・コミュニティ DAO。子育て支援トークン導入",
       link: "Case Study →",
       linkUrl: "#",
@@ -21,7 +21,7 @@ export default function CaseStudies() {
     },
     {
       name: "塩尻DAO",
-      logoSrc: "/logo/shiojiridao-kogo.webp",
+      logoSrc: "/assets/logo/shiojiridao-kogo.webp",
       description: "長野県・地域活性 DAO。農業バウンティを自動分配",
       link: "Interview →",
       linkUrl: "#",
@@ -43,7 +43,7 @@ export default function CaseStudies() {
     {
       id: "eth-tokyo",
       name: "ETH Tokyo",
-      logoSrc: "/logo/ETHTokyoLogoBlack.png",
+      logoSrc: "/assets/logo/ETHTokyoLogoBlack.png",
       description: "ハッカソン採択プロジェクト",
       link: "Highlights →",
       linkUrl: "#",
@@ -53,7 +53,7 @@ export default function CaseStudies() {
     },
     {
       name: "Fracton",
-      logoSrc: "/logo/fracton-logo.png",
+      logoSrc: "/assets/logo/fracton-logo.png",
       description: "インキュベーション支援",
       link: "Article →",
       linkUrl: "#",
@@ -63,7 +63,7 @@ export default function CaseStudies() {
     },
     {
       name: "Localcoop",
-      logoSrc: "/logo/localcoop-logo.png",
+      logoSrc: "/assets/logo/localcoop-logo.png",
       description: "助け合いプラットフォーム",
       link: "Coming soon",
       linkUrl: null,

@@ -118,9 +118,6 @@ export default function UseCases() {
             <br />
             <span style={highlightStyle}>すぐに役立ちます</span>
           </h2>
-          <p style={subtitleStyle}>
-            4つのターゲット別に、Tobanがどのように課題を解決するかをご紹介します
-          </p>
         </div>
 
         <div style={gridStyle}>

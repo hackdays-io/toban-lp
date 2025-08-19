@@ -1,25 +1,37 @@
-import { css } from "@emotion/react";
-
-const pageStyle = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, sans-serif;
-`;
-
-const titleStyle = css`
-  font-size: 3rem;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-`;
+import HeroSection from '../components/organisms/HeroSection';
+import ProblemSolution from '../components/organisms/ProblemSolution';
+import HowItWorks from '../components/organisms/HowItWorks';
+import UseCases from '../components/organisms/UseCases';
+import Features from '../components/organisms/Features';
+import SecurityStack from '../components/organisms/SecurityStack';
+import TrackRecord from '../components/organisms/TrackRecord';
+import AwardsMedia from '../components/organisms/AwardsMedia';
+import GettingStarted from '../components/organisms/GettingStarted';
+import Pricing from '../components/organisms/Pricing';
+import Faq from '../components/organisms/Faq';
+import Footer from '../components/organisms/Footer';
+import CaseStudies from '../components/organisms/CaseStudies';
+import InfiniteLoop from '../components/organisms/InfiniteLoop';
 
 export default function Home() {
   return (
-    <div css={pageStyle}>
-      <h1 css={titleStyle}>Hello, Toban LP!</h1>
+    <div className="page">
+      <main className="main">
+        <HeroSection />
+        <InfiniteLoop />
+        <ProblemSolution />
+        <HowItWorks />
+        <UseCases />
+        <Features />
+        <SecurityStack />
+        <TrackRecord />
+        <CaseStudies />
+        <AwardsMedia />
+        <GettingStarted />
+        {/* <Pricing /> */}
+        <Faq />
+        <Footer />
+      </main>
     </div>
   );
 }

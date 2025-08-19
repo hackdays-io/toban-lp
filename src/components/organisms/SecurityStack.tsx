@@ -11,7 +11,7 @@ export default function SecurityStack() {
   const protocols = [
     {
       name: "Hats Protocol",
-      logo: "/logo/hats-logo.png",
+      logo: "/assets/logo/hats-logo.png",
       role: "権限付与・剥奪を NFT 化",
       trust: "非転送型 ERC-1155。ロールは DAO が管理",
       link: "https://docs.hatsprotocol.xyz",
@@ -21,7 +21,7 @@ export default function SecurityStack() {
     },
     {
       name: "0xSplits",
-      logo: "/logo/splits-logo.png",
+      logo: "/assets/logo/splits-logo.png",
       role: "報酬の自動分配",
       trust: "監査済み & ハイパーストラクチャ",
       link: "https://review.mirror.xyz",
@@ -31,7 +31,7 @@ export default function SecurityStack() {
     },
     {
       name: "ENS",
-      logo: "/logo/ens-mark-Blue.svg",
+      logo: "/assets/logo/ens-mark-Blue.svg",
       role: "認識しやすい受取アドレス",
       trust: "オープンソース／分散管理",
       link: "https://ens.domains",

@@ -16,7 +16,7 @@ export default function HowItWorks() {
       title: "サインイン、ワークスペース参加",
       description:
         "ウォレット、ガス代なしで利用開始\n誰かから役割かアシストクレジットをもらうと自動的に参加",
-      image: "/HowItWorksImage/HowItWorks1.png",
+      image: "/assets/HowItWorksImage/HowItWorks1.png",
       color: "#ff6b6b",
     },
     {
@@ -25,7 +25,7 @@ export default function HowItWorks() {
       title: "役割の確認",
       description:
         "やるべきことや権限・権利を確認\n他にだれがどんな役割をもっているか見える",
-      image: "/HowItWorksImage/HowItWorks2.png",
+      image: "/assets/HowItWorksImage/HowItWorks2.png",
       color: "#4ecdc4",
     },
     {
@@ -34,8 +34,8 @@ export default function HowItWorks() {
       title: "アシストクレジットのやりとり",
       description: "助けてもらったとき\n気づきをもらったとき\nただ渡したいとき",
       images: [
-        "/HowItWorksImage/HowItWorks3-1.png",
-        "/HowItWorksImage/HowItWorks3-2.png",
+        "/assets/HowItWorksImage/HowItWorks3-1.png",
+        "/assets/HowItWorksImage/HowItWorks3-2.png",
       ],
       color: "#45b7d1",
     },
@@ -45,7 +45,7 @@ export default function HowItWorks() {
       title: "分配コントラクトの作成",
       description:
         "報酬分配をしたい役割を選択\n報酬分配率はアルゴリズムで自動計算",
-      image: "/HowItWorksImage/HowItWorks4.png",
+      image: "/assets/HowItWorksImage/HowItWorks4.png",
       color: "#96c93d",
     },
     {
@@ -54,7 +54,7 @@ export default function HowItWorks() {
       title: "報酬の分配",
       description:
         "ERC20、ネイティブトークンを分配コントラクトに送金\n1回のトランザクションで一気に分配",
-      image: "/HowItWorksImage/HowItWorks5.png",
+      image: "/assets/HowItWorksImage/HowItWorks5.png",
       color: "#f39c12",
     },
   ];
