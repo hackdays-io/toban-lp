@@ -152,12 +152,9 @@ export default function AwardsMedia() {
               <div
                 style={{
                   ...timelineDotStyle,
-                  backgroundColor: award.color,
-                  transform: activeItem === index ? "scale(1.3)" : "scale(1)",
-                  boxShadow:
-                    activeItem === index
-                      ? `0 0 20px ${award.color}40, 0 0 40px ${award.color}20`
-                      : `0 4px 15px ${award.color}30`,
+                  backgroundColor: "transparent",
+                  boxShadow: "none",
+                  borderRadius: "0",
                 }}
               >
                 <span style={dotIconStyle}>{award.icon}</span>
@@ -330,7 +327,6 @@ const timelineDotStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  transition: "all 0.3s ease",
   zIndex: 2,
 };
 
