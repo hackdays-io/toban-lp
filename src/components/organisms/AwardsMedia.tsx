@@ -333,6 +333,13 @@ const timelineDotStyle: React.CSSProperties = {
 const dotIconStyle: React.CSSProperties = {
   fontSize: "0.9rem",
   filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
+  backgroundColor: "white",
+  borderRadius: "50%",
+  width: "30px",
+  height: "30px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 };
 
 const cardStyle: React.CSSProperties = {
