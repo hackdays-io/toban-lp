@@ -9,6 +9,7 @@ export default function Faq() {
 
   const faqs = [
     {
+      id: "web3-knowledge",
       question: "Web3の知識がなくても使えますか？",
       answer: "はい、ウォレットの作成手順も含めてサポートしています。",
       detailedAnswer:
@@ -17,6 +18,7 @@ export default function Faq() {
       color: "#3b82f6",
     },
     {
+      id: "tool-integration",
       question: "現在のツールと併用できますか？",
       answer: "Discord や GitHub との連携も可能です。",
       detailedAnswer:

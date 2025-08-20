@@ -10,6 +10,7 @@ export default function CaseStudies() {
 
   const cases = [
     {
+      id: "comoris",
       name: "Comoris",
       logoSrc: "/assets/logo/comoris-logo.png",
       description: "沖縄・コミュニティ DAO。子育て支援トークン導入",
@@ -20,6 +21,7 @@ export default function CaseStudies() {
       status: "active",
     },
     {
+      id: "shiojiri-dao",
       name: "塩尻DAO",
       logoSrc: "/assets/logo/shiojiridao-kogo.webp",
       description: "長野県・地域活性 DAO。農業バウンティを自動分配",
@@ -52,6 +54,7 @@ export default function CaseStudies() {
       status: "active",
     },
     {
+      id: "fracton",
       name: "Fracton",
       logoSrc: "/assets/logo/fracton-logo.png",
       description: "インキュベーション支援",
@@ -62,6 +65,7 @@ export default function CaseStudies() {
       status: "active",
     },
     {
+      id: "localcoop",
       name: "Localcoop",
       logoSrc: "/assets/logo/localcoop-logo.png",
       description: "助け合いプラットフォーム",

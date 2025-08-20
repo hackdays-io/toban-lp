@@ -48,6 +48,7 @@ export default function UseCases() {
         "「成果が見える」コミュニティ施策として社内説明・承認が取りやすくなる",
     },
     {
+      id: "community",
       title: "地域コミュニティマネージャーさんへ",
       subtitle: "（NPO・団体運営者）",
       icon: "🤝",
@@ -67,6 +68,7 @@ export default function UseCases() {
         "貢献が「忘れられない・不公平にならない」仕組みで、持続的なコミュニティ運営が可能",
     },
     {
+      id: "creator",
       title: "コミュニティ創設者さん・\n運営者さんへ",
       subtitle: "",
       icon: "💻",
