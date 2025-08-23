@@ -4,6 +4,7 @@ import { brand, neutral } from "@/themes/settings/color";
 import type { ComponentProps } from "@/types";
 import { css } from "@emotion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { type FC, useCallback, useEffect, useRef, useState } from "react";
 
 const Header: FC<ComponentProps> = ({ children }) => {
@@ -74,10 +75,20 @@ const Header: FC<ComponentProps> = ({ children }) => {
 
   const logoStyle = css`
     align-items: center;
-    color: ${brand.Primary};
-    display: flex;
+    color: ${brand.Secondary};
+    display: none;
     font-size: 1.5rem;
     font-weight: 700;
+    gap: 0.5rem;
+
+    ${mq.tablet} {
+      display: flex;
+    }
+  `;
+
+  const logoImageStyle = css`
+    height: 2rem;
+    width: auto;
   `;
 
   const navLinksStyle = css`
@@ -111,7 +122,7 @@ const Header: FC<ComponentProps> = ({ children }) => {
     gap: 5px;
 
     span {
-      background-color: ${brand.Primary};
+      background-color: ${brand.Secondary};
       height: 3px;
       transition: 0.3s;
       width: 25px;
@@ -154,12 +165,12 @@ const Header: FC<ComponentProps> = ({ children }) => {
     align-self: flex-end;
     background: none;
     border: none;
-    color: ${brand.Primary};
+    color: ${brand.Secondary};
     cursor: pointer;
     font-size: 1.5rem;
 
     &:hover {
-      color: ${brand.Secondary};
+      color: ${brand.Accent1};
     }
   `;
 
@@ -169,7 +180,14 @@ const Header: FC<ComponentProps> = ({ children }) => {
         <div css={navContentStyle}>
           <Link href="/">
             <div css={logoStyle}>
-              <span>ETHTokyo</span>
+              <Image
+                src="/assets/toban-logo.svg"
+                alt="Toban Logo"
+                width={32}
+                height={32}
+                css={logoImageStyle}
+              />
+              <span>Toban</span>
             </div>
           </Link>
           {/* ハンバーガーアイコン */}
@@ -185,26 +203,32 @@ const Header: FC<ComponentProps> = ({ children }) => {
             <span />
             <span />
           </div>
-          <nav css={navLinksStyle}>
-            <Link href="#about" css={navLinkStyle}>
-              About
-            </Link>
-            <Link href="#conference" css={navLinkStyle}>
-              Conference
-            </Link>
+          {/* <nav css={navLinksStyle}>
             <Link href="#tracks" css={navLinkStyle}>
-              Hackathon
+              現場別
             </Link>
             <Link href="#schedule" css={navLinkStyle}>
-              Schedule
+              機能
             </Link>
             <Link href="#venue" css={navLinkStyle}>
-              Venue
+              セキュリティ
             </Link>
             <Link href="#apply" css={navLinkStyle}>
-              Apply as a Speaker
+              トラックレコード
             </Link>
-          </nav>
+            <Link href="#apply" css={navLinkStyle}>
+              事例
+            </Link>
+            <Link href="#apply" css={navLinkStyle}>
+              受賞・メディア
+            </Link>
+            <Link href="#apply" css={navLinkStyle}>
+              参加方法
+            </Link>
+            <Link href="#apply" css={navLinkStyle}>
+              FAQ
+            </Link>
+          </nav> */}
         </div>
       </div>
       {/* ドロワー背景 */}
