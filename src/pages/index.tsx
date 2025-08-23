@@ -10,7 +10,6 @@ import AwardsMedia from "../components/organisms/AwardsMedia";
 import GettingStarted from "../components/organisms/GettingStarted";
 import Pricing from "../components/organisms/Pricing";
 import Faq from "../components/organisms/Faq";
-import Footer from "../components/organisms/Footer";
 import CaseStudies from "../components/organisms/CaseStudies";
 import InfiniteLoop from "../components/organisms/InfiniteLoop";
 
@@ -32,7 +31,6 @@ export default function Home() {
           <GettingStarted />
           {/* <Pricing /> */}
           <Faq />
-          <Footer />
         </main>
       </div>
     </Layout>
