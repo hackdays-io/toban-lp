@@ -8,7 +8,12 @@ export default function HeroSection() {
           className="hero-image"
         />
         <div className="hero-buttons">
-          <a href="https://toban.xyz/" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a
+            href="https://toban.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
             開始する
           </a>
           <a href="#case-studies" className="btn-primary">
