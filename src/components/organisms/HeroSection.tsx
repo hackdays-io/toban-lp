@@ -8,9 +8,9 @@ export default function HeroSection() {
           className="hero-image"
         />
         <div className="hero-buttons">
-          <button type="button" className="btn-primary">
+          <a href="https://toban.xyz/" target="_blank" rel="noopener noreferrer" className="btn-primary">
             開始する
-          </button>
+          </a>
           <button type="button" className="btn-primary">
             事例を見る
           </button>

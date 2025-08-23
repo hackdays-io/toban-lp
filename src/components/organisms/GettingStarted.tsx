@@ -211,10 +211,10 @@ export default function GettingStarted() {
               徐々に他の役割も体験してみましょう。
             </p>
             <div style={ctaButtonsStyle}>
-              <button type="button" style={primaryCtaButtonStyle}>
+              <a href="https://toban.xyz/" target="_blank" rel="noopener noreferrer" style={primaryCtaButtonStyle}>
                 <span style={ctaButtonIconStyle}>🚀</span>
                 今すぐ始める
-              </button>
+              </a>
               <button type="button" style={secondaryCtaButtonStyle}>
                 詳細ガイドを見る
               </button>

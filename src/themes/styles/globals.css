@@ -372,6 +372,10 @@ ol {
   min-width: 140px;
   flex: 1;
   max-width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-buttons .btn-primary {
