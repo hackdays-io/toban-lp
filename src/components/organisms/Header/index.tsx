@@ -204,27 +204,6 @@ const Header: FC<ComponentProps> = ({ children }) => {
             <span />
           </div>
           {/* <nav css={navLinksStyle}>
-            <Link href="#tracks" css={navLinkStyle}>
-              現場別
-            </Link>
-            <Link href="#schedule" css={navLinkStyle}>
-              機能
-            </Link>
-            <Link href="#venue" css={navLinkStyle}>
-              セキュリティ
-            </Link>
-            <Link href="#apply" css={navLinkStyle}>
-              トラックレコード
-            </Link>
-            <Link href="#apply" css={navLinkStyle}>
-              事例
-            </Link>
-            <Link href="#apply" css={navLinkStyle}>
-              受賞・メディア
-            </Link>
-            <Link href="#apply" css={navLinkStyle}>
-              参加方法
-            </Link>
             <Link href="#apply" css={navLinkStyle}>
               FAQ
             </Link>
@@ -260,74 +239,131 @@ const Header: FC<ComponentProps> = ({ children }) => {
           type="button"
           css={navLinkStyle}
           onClick={() => {
-            document
-              .querySelector("#about")
-              ?.scrollIntoView({ behavior: "smooth" });
+            window.scrollTo({ top: 0, behavior: "smooth" });
             closeMenu();
           }}
         >
-          About
+          トップ
         </button>
         <button
           type="button"
           css={navLinkStyle}
           onClick={() => {
             document
-              .querySelector("#conference")
+              .querySelector("#problem-solution")
               ?.scrollIntoView({ behavior: "smooth" });
             closeMenu();
           }}
         >
-          Conference
+          課題と解決策
         </button>
         <button
           type="button"
           css={navLinkStyle}
           onClick={() => {
             document
-              .querySelector("#schedule")
+              .querySelector("#how-it-works")
               ?.scrollIntoView({ behavior: "smooth" });
             closeMenu();
           }}
         >
-          Schedule
+          使い方
         </button>
         <button
           type="button"
           css={navLinkStyle}
           onClick={() => {
             document
-              .querySelector("#tracks")
+              .querySelector("#use-cases")
               ?.scrollIntoView({ behavior: "smooth" });
             closeMenu();
           }}
         >
-          Hackathon
+          ユースケース
         </button>
         <button
           type="button"
           css={navLinkStyle}
           onClick={() => {
             document
-              .querySelector("#venue")
+              .querySelector("#features")
               ?.scrollIntoView({ behavior: "smooth" });
             closeMenu();
           }}
         >
-          Venue
+          機能
         </button>
         <button
           type="button"
           css={navLinkStyle}
           onClick={() => {
-            window.open(
-              "https://speak.ethtokyo.org/conference-2025/submit",
-              "_blank",
-            );
+            document
+              .querySelector("#security-stack")
+              ?.scrollIntoView({ behavior: "smooth" });
             closeMenu();
           }}
         >
-          Apply as a Speaker
+          セキュリティ
+        </button>
+        <button
+          type="button"
+          css={navLinkStyle}
+          onClick={() => {
+            document
+              .querySelector("#track-record")
+              ?.scrollIntoView({ behavior: "smooth" });
+            closeMenu();
+          }}
+        >
+          実績
+        </button>
+        <button
+          type="button"
+          css={navLinkStyle}
+          onClick={() => {
+            document
+              .querySelector("#case-studies")
+              ?.scrollIntoView({ behavior: "smooth" });
+            closeMenu();
+          }}
+        >
+          導入事例
+        </button>
+        <button
+          type="button"
+          css={navLinkStyle}
+          onClick={() => {
+            document
+              .querySelector("#awards-media")
+              ?.scrollIntoView({ behavior: "smooth" });
+            closeMenu();
+          }}
+        >
+          受賞・メディア
+        </button>
+        <button
+          type="button"
+          css={navLinkStyle}
+          onClick={() => {
+            document
+              .querySelector("#getting-started")
+              ?.scrollIntoView({ behavior: "smooth" });
+            closeMenu();
+          }}
+        >
+          始め方
+        </button>
+        <button
+          type="button"
+          css={navLinkStyle}
+          onClick={() => {
+            document
+              .querySelector("#faq")
+              ?.scrollIntoView({ behavior: "smooth" });
+            closeMenu();
+          }}
+        >
+          よくある質問
         </button>
       </div>
     </header>
