@@ -11,9 +11,9 @@ export default function HeroSection() {
           <a href="https://toban.xyz/" target="_blank" rel="noopener noreferrer" className="btn-primary">
             開始する
           </a>
-          <button type="button" className="btn-primary">
+          <a href="#case-studies" className="btn-primary">
             事例を見る
-          </button>
+          </a>
         </div>
       </div>
     </div>
