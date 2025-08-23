@@ -11,48 +11,48 @@ import type { FC } from "react";
 
 export const metadata = {
   title: {
-    template: "%s | ETHTokyo'25",
-    default: "ETHTokyo'25",
+    template: "%s | Toban",
+    default: "Toban",
   },
-  description: "The Japanese Ethereum Community Hackathon & Conference",
-  keywords: ["Ethereum", "Japan", "Tokyo", "Blockchain", "Hackathon"],
+  description: "Toban 当番 いちばん簡単な貢献の記録と報酬の分配",
+  keywords: ["Toban", "当番", "協働ツール", "Blockchain", "WEB3"],
   category: "technology",
-  authors: [{ name: "Ethereum Japan", url: "https://github.com/ethereumjp" }],
+  authors: [{ name: "Toban", url: "https://github.com/hackdays-io/toban" }],
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  openGraph: {
-    title: "ETHTokyo 2025",
-    description: "The Japanese Ethereum Community Hackathon & Conference",
-    url: "https://ethtokyo.org/",
-    siteName: "ethtokyo.org",
-    images: [
-      {
-        url: "https://ethtokyo.org/assets/ETHTokyoLogo.png",
-        width: 800,
-        height: 600,
-      },
-    ],
-    locale: "en_EN",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ETHTokyo 2025",
-    description: "The Japanese Ethereum Community Hackathon & Conference",
-    siteId: "1511737631948034048",
-    creator: "@Ethereum_JP",
-    creatorId: "1511737631948034048",
-    images: ["https://ethtokyo.org/assets/ETHTokyoLogo.png"],
-  },
+  // openGraph: {
+  //   title: "ETHTokyo 2025",
+  //   description: "The Japanese Ethereum Community Hackathon & Conference",
+  //   url: "https://ethtokyo.org/",
+  //   siteName: "ethtokyo.org",
+  //   images: [
+  //     {
+  //       url: "https://ethtokyo.org/assets/ETHTokyoLogo.png",
+  //       width: 800,
+  //       height: 600,
+  //     },
+  //   ],
+  //   locale: "en_EN",
+  //   type: "website",
+  // },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "ETHTokyo 2025",
+  //   description: "The Japanese Ethereum Community Hackathon & Conference",
+  //   siteId: "1511737631948034048",
+  //   creator: "@Ethereum_JP",
+  //   creatorId: "1511737631948034048",
+  //   images: ["https://ethtokyo.org/assets/ETHTokyoLogo.png"],
+  // },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#B8FAF6" },
     { media: "(prefers-color-scheme: dark)", color: "#C9B3F5" },
   ],
   icons: {
-    icon: "/assets/ETHTokyoLogo.png",
+    icon: "/assets/toban-logo.svg",
   },
   robots: {
     index: true,
@@ -77,7 +77,7 @@ const fontInter = Inter({
 // const styleCache = createCache({ key: 'next' });
 
 const Layout: FC<PageProps> = ({ pageTitle, children }) => {
-  const siteTitle = "ETHTokyo'25";
+  const siteTitle = "Toban";
   const baseLayoutStyle = css`
     background-color: ${themeLight.Background};
     color: ${neutral.Text};

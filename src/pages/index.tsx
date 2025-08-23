@@ -16,7 +16,7 @@ import InfiniteLoop from "../components/organisms/InfiniteLoop";
 
 export default function Home() {
   return (
-    <Layout pageTitle="Toban">
+    <Layout pageTitle="Toban LP">
       <div className="page">
         <main className="main">
           <HeroSection />

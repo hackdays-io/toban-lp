@@ -13,18 +13,17 @@ export const neutral = {
 } as const;
 
 export const brand = {
-  Primary: "#FF5544",
-  Secondary: "#552266",
-  Accent1: "#FF9977",
-  Accent2: "#9988FF",
+  Primary: "#FEFBF7",
+  Secondary: "#0E052E",
+  Accent1: "#EAC435",
+  Accent2: "#B07C8C",
 
   // 互換性のために残しておく従来の色名（新しい色で置き換え）
-  Shuiro: "#FF5544", // brand.Primary と同じ
-  Miyabi: "#552266", // brand.Secondary と同じ
-  JordyBlue: "#9988FF", // brand.Accent2 と同じ
+  OffWhite: "#FEFBF7", // brand.Primary と同じ
+  Indigo: "#0E052E", // brand.Secondary と同じ
+  TurkishRose: "#B07C8C", // brand.Accent2 と同じ
   BluePantone: "#4455FF", // themeLight.Link と同じ
-  BabyPink: "#FF9977", // brand.Accent1 と同じ
-  CelesteGreen: "#FFEECC", // themeLight.Background と同じ
+  MustardYellow: "#EAC435", // brand.Accent1 と同じ
 } as const;
 
 export const themeLight = {
@@ -44,7 +43,7 @@ export const themeLight = {
   Body: neutral.Text,
   BodyLight: neutral.Grey4,
   Disable: neutral.Grey3,
-  Background: "#FFEECC",
+  Background: "#FEFBF7",
   BackgroundHighlight: neutral.Grey1,
 } as const;
 
@@ -56,50 +55,3 @@ export const info = {
   Attention: "#FFAA44",
   AttentionLight: "#FFF8DD",
 } as const;
-
-/* 
-========== 元のカラー定義（参照用） ==========
-
-export const neutral = {
-  White: "#FFFFFF",
-  Grey1: "#F7F7F7", // body background
-  Grey2: "#D4D4D4", // lines, mouse over, lists or tables
-  Grey3: "#B0B0B0", // disable (light theme)
-  Grey4: "#646464", // supporting text, disable (dark theme)
-  Grey5: "#222222", // dark theme background
-  Grey6: "#141414", // default text color
-  Black: "#000000",
-} as const;
-
-export const themeLight = {
-  Primary: "#1C1CFF",
-  PrimaryHighContrast: "#0B0B66",
-  PrimaryLowContrast: "#DEDEFF",
-  PrimaryHover: "#ABABFE",
-  PrimaryVisited: "#090990",
-  Body: neutral.Grey5,
-  BodyLight: neutral.Grey4,
-  Disable: neutral.Grey2,
-  Background: neutral.White,
-  BackgroundHighlight: neutral.Grey1,
-} as const;
-
-export const info = {
-  Success: "#0A7146", // success message, success border
-  SuccessLight: "#DDF4E4", // success background
-  Error: "#B80000", // error message, error border
-  ErrorLight: "#F7C8C8", // error background
-  Attention: "#00e7e7", // notifications, announcement border
-  AttentionLight: "#FFF8DF", // notifications background,  announcement background
-} as const;
-
-// do not use for UI elements
-export const brand = {
-  BabyPink: "#F0CDC2",
-  CelesteGreen: "#B8FAF6",
-  JordyBlue: "#88AAF1",
-  BluePantone: "#1616B4",
-  Miyabi: "#552266",
-  Shuiro: "#FF5544",
-} as const;
-*/
