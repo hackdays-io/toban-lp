@@ -1,3 +1,4 @@
+import Layout from "@/components/layouts/base";
 import HeroSection from "../components/organisms/HeroSection";
 import ProblemSolution from "../components/organisms/ProblemSolution";
 import HowItWorks from "../components/organisms/HowItWorks";
@@ -15,23 +16,25 @@ import InfiniteLoop from "../components/organisms/InfiniteLoop";
 
 export default function Home() {
   return (
-    <div className="page">
-      <main className="main">
-        <HeroSection />
-        <InfiniteLoop />
-        <ProblemSolution />
-        <HowItWorks />
-        <UseCases />
-        <Features />
-        <SecurityStack />
-        <TrackRecord />
-        <CaseStudies />
-        <AwardsMedia />
-        <GettingStarted />
-        {/* <Pricing /> */}
-        <Faq />
-        <Footer />
-      </main>
-    </div>
+    <Layout pageTitle="Toban">
+      <div className="page">
+        <main className="main">
+          <HeroSection />
+          <InfiniteLoop />
+          <ProblemSolution />
+          <HowItWorks />
+          <UseCases />
+          <Features />
+          <SecurityStack />
+          <TrackRecord />
+          <CaseStudies />
+          <AwardsMedia />
+          <GettingStarted />
+          {/* <Pricing /> */}
+          <Faq />
+          <Footer />
+        </main>
+      </div>
+    </Layout>
   );
 }
