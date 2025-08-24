@@ -8,12 +8,12 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "serve out",
-    "lint": "yarn run biome lint ./src",
-    "lint:fix": "yarn run biome lint ./src --write",
-    "lint:fix:css": "stylelint --fix \"**/*.{js,jsx,ts,tsx}\"",
-    "format": "yarn run biome format ./src --write",
-    "check": "yarn run biome check ./src",
-    "clean": "yarn run biome check ./src --write",
+    "lint": "biome lint ./src",
+    "lint:fix": "biome lint ./src --write",
+    "format": "biome format ./src --write",
+    "check": "biome check ./src",
+    "check:fix": "biome check --write --unsafe ./src",
+    "type-check": "tsc --noEmit",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -31,6 +31,12 @@
     "@types/react-dom": "^18.0.0",
     "lint-staged": "^15.0.0",
     "typescript": "^5.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "biome check --write --unsafe ./src",
+      "biome format --write ./src"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
