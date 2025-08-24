@@ -9,6 +9,9 @@ Toban のランディングページプロジェクトです。
 - **Emotion** - CSS-in-JS ライブラリ
 - **Biome** - リンター・フォーマッター
 - **Yarn** - パッケージマネージャー
+- **React Icons** - アイコンライブラリ
+- **Storybook** - コンポーネント開発環境
+- **serve** - 静的ファイル配信サーバー
 
 ## 📋 必要条件
 
@@ -30,7 +33,15 @@ cd toban-lp
 yarn install
 ```
 
-### 3. 環境変数の設定
+### 3. 不足している依存関係のインストール
+
+プロジェクトで使用されているアイコンライブラリをインストールします：
+
+```bash
+yarn add react-icons
+```
+
+### 4. 環境変数の設定
 
 必要に応じて環境変数を設定してください：
 
@@ -63,6 +74,22 @@ yarn build
 yarn start
 ```
 
+### 静的ファイルのエクスポート
+
+このプロジェクトは静的サイトとしてビルドされます：
+
+```bash
+yarn export
+```
+
+### Storybookの起動
+
+コンポーネントの開発・テスト用にStorybookを使用できます：
+
+```bash
+yarn build-storybook
+```
+
 ## 🧹 コード品質
 
 ### リント
@@ -92,29 +119,75 @@ yarn check
 yarn clean
 ```
 
+### Git Hooks
+
+このプロジェクトでは`simple-git-hooks`と`lint-staged`を使用して、コミット前に自動的にコード品質チェックが実行されます：
+
+- コミット前に自動的にリントとフォーマットが実行される
+- 問題がある場合はコミットがブロックされる
+
 ## 📁 プロジェクト構造
 
 ```
 toban-lp/
 ├── public/                 # 静的ファイル
 │   └── assets/            # アセットファイル
+│       ├── logo/          # ロゴファイル
+│       ├── HowItWorksImage/ # 説明画像
+│       ├── toban-logo.svg # Tobanロゴ
+│       ├── toban-logo-text.svg # Tobanテキストロゴ
+│       ├── hero-image.png # ヒーロー画像
+│       └── favicon.ico    # ファビコン
 ├── src/                   # ソースコード
 │   ├── components/        # React コンポーネント
 │   │   ├── common/       # 共通コンポーネント
+│   │   │   └── Button.tsx # ボタンコンポーネント
 │   │   ├── layouts/      # レイアウトコンポーネント
+│   │   │   └── base.tsx  # ベースレイアウト
 │   │   └── organisms/    # 複合コンポーネント
+│   │       ├── Header/   # ヘッダーコンポーネント
+│   │       ├── Footer/   # フッターコンポーネント
+│   │       ├── HeroSection.tsx # ヒーローセクション
+│   │       ├── Features.tsx # 機能紹介
+│   │       ├── ProblemSolution.tsx # 問題と解決策
+│   │       ├── HowItWorks.tsx # 使い方説明
+│   │       ├── UseCases.tsx # ユースケース
+│   │       ├── CaseStudies.tsx # 事例紹介
+│   │       ├── SecurityStack.tsx # セキュリティスタック
+│   │       ├── TrackRecord.tsx # 実績
+│   │       ├── Pricing.tsx # 料金プラン
+│   │       ├── Faq.tsx # よくある質問
+│   │       ├── AwardsMedia.tsx # 受賞・メディア
+│   │       ├── InfiniteLoop.tsx # 無限ループ
+│   │       └── GettingStarted.tsx # 始め方
 │   ├── data/             # データファイル
 │   ├── hooks/            # カスタムフック
 │   ├── locales/          # 国際化ファイル
 │   ├── pages/            # Next.js ページ
+│   │   ├── _app.tsx      # アプリケーション設定
+│   │   ├── _document.tsx # ドキュメント設定
+│   │   └── index.tsx     # メインページ
 │   ├── themes/           # テーマ設定
-│   │   ├── settings/    # テーマ設定
-│   │   └── styles/      # スタイル定義
+│   │   ├── settings/     # テーマ設定
+│   │   │   ├── color.ts  # カラー設定
+│   │   │   ├── spaces.ts # スペーシング設定
+│   │   │   └── breakpoints.ts # ブレークポイント設定
+│   │   ├── styles/       # スタイル定義
+│   │   │   └── globals.css # グローバルスタイル
+│   │   └── global.ts     # グローバルテーマ設定
 │   └── types/            # TypeScript 型定義
+├── .github/              # GitHub設定
+├── .yarn/                # Yarn設定
 ├── biome.json            # Biome 設定
 ├── next.config.ts        # Next.js 設定
+├── next-env.d.ts         # Next.js型定義
 ├── package.json          # パッケージ設定
-└── tsconfig.json         # TypeScript 設定
+├── tsconfig.json         # TypeScript 設定
+├── tsconfig.tsbuildinfo  # TypeScriptビルド情報
+├── .gitignore            # Git除外設定
+├── .gitattributes        # Git属性設定
+├── .yarnrc.yml           # Yarn設定
+└── yarn.lock             # Yarnロックファイル
 ```
 
 ## 🤝 コントリビューション
@@ -135,3 +208,5 @@ toban-lp/
 - [TypeScript ドキュメント](https://www.typescriptlang.org/docs/)
 - [Emotion ドキュメント](https://emotion.sh/docs/introduction)
 - [Biome ドキュメント](https://biomejs.dev/)
+- [Storybook ドキュメント](https://storybook.js.org/docs/react/get-started/introduction)
+- [React Icons ドキュメント](https://react-icons.github.io/react-icons/)
