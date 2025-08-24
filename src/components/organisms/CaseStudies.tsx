@@ -1,8 +1,8 @@
 "use client";
 
-import type React from "react";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 export default function CaseStudies() {
   const [isVisible, setIsVisible] = useState(false);

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function HowItWorks() {
   const [isVisible, setIsVisible] = useState(false);

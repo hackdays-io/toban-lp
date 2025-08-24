@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
-import { FaGithub, FaDiscord, FaYoutube } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { social, ui } from "../../../themes/settings/color";
 
