@@ -9,58 +9,67 @@ export default function Faq() {
 
   const faqs = [
     {
-      id: "web3-knowledge",
-      question: "Web3の知識がなくても使えますか？",
-      answer: "はい、ウォレットの作成手順も含めてサポートしています。",
+      id: "technical-knowledge",
+      question: "Tobanを使うのに専門的な知識は必要ですか？",
+      answer: "いいえ、必要ありません。",
       detailedAnswer:
-        "Tobanは初心者でも簡単に使えるよう設計されています。ウォレットの作成から基本的な使い方まで、ステップバイステップのガイドを提供しており、Web3の専門知識がなくても安心してご利用いただけます。",
+        "Tobanはブラウザベースで利用でき、NFTやブロックチェーンの知識がなくても簡単に使い始められます。技術的な部分はすべてTobanが裏側で処理します。",
       icon: "🔰",
       color: "#3b82f6",
     },
     {
-      id: "tool-integration",
-      question: "現在のツールと併用できますか？",
-      answer: "Discord や GitHub との連携も可能です。",
+      id: "free-usage",
+      question: "無料で使えますか？",
+      answer: "はい。まずは無料プランで始められます。",
       detailedAnswer:
-        "Tobanは既存のワークフローを妨げることなく、DiscordボットやGitHub連携、Slack統合など、多様なツールとの連携機能を提供しています。APIも公開しているため、カスタム統合も可能です。",
-      icon: "🔗",
+        "小規模コミュニティや実証実験レベルでは無料で十分ご利用いただけます。利用規模が大きくなった場合に応じて有料プランをご用意しています。",
+      icon: "💰",
       color: "#10b981",
     },
     {
-      id: "tax-export",
-      question: "税務処理用の出力は？",
-      answer: "ダッシュボードからCSV出力が可能です。",
+      id: "reward-types",
+      question: "報酬は必ず金銭で支払う必要がありますか？",
+      answer: "いいえ。",
       detailedAnswer:
-        "すべての取引履歴と分配記録は、税務申告に必要な形式でCSV出力できます。日本の税制に対応した項目分けも行っており、税理士さんとの連携もスムーズです。",
-      icon: "📊",
+        "Tobanでは「金銭」「ポイント」「NFT」「特典（イベント参加権、商品引換など）」など、コミュニティに合った形で報酬を設計できます。",
+      icon: "🎁",
       color: "#f59e0b",
     },
     {
       id: "security",
-      question: "セキュリティはどのように確保されていますか？",
-      answer: "すべてオープンソース、監査済みスマートコントラクトを使用。",
+      question: "セキュリティは大丈夫ですか？",
+      answer: "はい。",
       detailedAnswer:
-        "Tobanのコードはすべてオープンソースで公開されており、使用するスマートコントラクトは第三者機関による監査を受けています。また、秘密鍵の管理はユーザー自身が行うため、中央集権的なリスクがありません。",
+        "Tobanはスマートコントラクトや暗号化技術を用いた堅牢なプロトコルスタックで構築されており、改ざんや不正を防ぎます。大切なデータは安全に保護されます。",
       icon: "🔒",
       color: "#8b5cf6",
     },
     {
-      id: "pricing",
-      question: "利用料金はかかりますか？",
-      answer: "プラットフォーム利用は無料、ブロックチェーン手数料のみ。",
+      id: "community-types",
+      question: "どんなコミュニティに向いていますか？",
+      answer: "自治体・企業・NPO・地域団体・オンラインサロンなど、大小さまざまなコミュニティに対応可能です。",
       detailedAnswer:
-        "Toban自体の利用料金は一切かかりません。ただし、ブロックチェーン上での取引には少額のガス代（手数料）が発生します。これは一般的に数十円から数百円程度です。",
-      icon: "💰",
+        "特に「貢献を見える化して公平に報酬や感謝を伝えたい」場面で効果を発揮します。",
+      icon: "🏘️",
       color: "#ef4444",
     },
     {
-      id: "community-support",
-      question: "コミュニティサポートはありますか？",
-      answer: "Discordコミュニティで24/7サポートを提供。",
+      id: "data-usage",
+      question: "活動データはどのように活用できますか？",
+      answer: "貢献ログはTobanのダッシュボードで集計・可視化され、助成金申請や活動報告、企業のROI測定などに活用できます。",
       detailedAnswer:
-        "活発なDiscordコミュニティがあり、ユーザー同士の助け合いや開発チームからの直接サポートを受けられます。また、定期的なオンラインワークショップや勉強会も開催しています。",
-      icon: "💬",
+        "透明で信頼できるデータとして第三者にも提示可能です。",
+      icon: "📊",
       color: "#06b6d4",
+    },
+    {
+      id: "account-requirements",
+      question: "参加者は特別なアカウントやウォレットが必要ですか？",
+      answer: "いいえ。",
+      detailedAnswer:
+        "メールアドレスやSNSアカウントで簡単に参加できます。必要に応じて後からウォレットを接続することも可能です。",
+      icon: "👤",
+      color: "#84cc16",
     },
   ];
 
@@ -262,7 +271,7 @@ const faqItemStyle: React.CSSProperties = {
 
 const questionButtonStyle: React.CSSProperties = {
   width: "100%",
-  padding: "25px 30px",
+  padding: "clamp(20px, 4vw, 25px) clamp(20px, 4vw, 30px)",
   border: "2px solid",
   background: "white",
   cursor: "pointer",
@@ -273,12 +282,12 @@ const questionButtonStyle: React.CSSProperties = {
 const questionHeaderStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
-  gap: "20px",
+  gap: "clamp(12px, 3vw, 20px)",
 };
 
 const iconWrapperStyle: React.CSSProperties = {
-  width: "50px",
-  height: "50px",
+  width: "clamp(40px, 8vw, 50px)",
+  height: "clamp(40px, 8vw, 50px)",
   borderRadius: "12px",
   border: "2px solid",
   display: "flex",
@@ -288,11 +297,11 @@ const iconWrapperStyle: React.CSSProperties = {
 };
 
 const iconStyle: React.CSSProperties = {
-  fontSize: "1.5rem",
+  fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
 };
 
 const questionTextStyle: React.CSSProperties = {
-  fontSize: "1.1rem",
+  fontSize: "clamp(0.95rem, 2.5vw, 1.1rem)",
   fontWeight: "600",
   textAlign: "left",
   flex: 1,
@@ -323,6 +332,7 @@ const shortAnswerStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "flex-start",
   gap: "10px",
+  textAlign: "left",
 };
 
 const answerIconStyle: React.CSSProperties = {
@@ -336,6 +346,7 @@ const detailedAnswerStyle: React.CSSProperties = {
   color: "#64748b",
   margin: 0,
   lineHeight: 1.6,
+  textAlign: "left",
 };
 
 const supportSectionStyle: React.CSSProperties = {
