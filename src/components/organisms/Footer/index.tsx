@@ -2,25 +2,28 @@
 
 import type React from "react";
 import { useState } from "react";
+import { FaGithub, FaDiscord, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { social, ui } from "../../../themes/settings/color";
 
 export default function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const socialLinks = [
-    { id: "github", name: "GitHub", icon: "🐙", url: "#", color: "#333" },
-    { id: "discord", name: "Discord", icon: "💬", url: "#", color: "#5865f2" },
+    { id: "github", name: "GitHub", icon: <FaGithub />, url: "https://github.com/hackdays-io/toban-lp", color: social.GitHub },
+    { id: "discord", name: "Discord", icon: <FaDiscord />, url: "https://discord.com/channels/979969380802777169/1277777126359302220", color: social.Discord },
     {
       id: "twitter",
       name: "X (Twitter)",
-      icon: "🐦",
-      url: "#",
-      color: "#1da1f2",
+      icon: <FaXTwitter />,
+      url: "https://x.com/0xtoban",
+      color: social.Twitter,
     },
-    { id: "youtube", name: "YouTube", icon: "📺", url: "#", color: "#ff0000" },
+    { id: "youtube", name: "YouTube", icon: <FaYoutube />, url: "https://www.youtube.com/watch?v=jFjxNSHiCBI", color: social.YouTube },
   ];
 
   const quickLinks = [
-    { id: "docs", name: "ドキュメント", url: "#" },
+    { id: "docs", name: "ドキュメント", url: "https://hackdays-io.github.io/toban/docs/welcome" },
     { id: "api", name: "API リファレンス", url: "#" },
     { id: "tutorial", name: "チュートリアル", url: "#" },
     { id: "community", name: "コミュニティ", url: "#" },
@@ -46,6 +49,12 @@ export default function Footer() {
       value: "partnership@toban.community",
       icon: "🤝",
     },
+    {
+      id: "contact-form",
+      label: "お問い合わせフォーム",
+      value: "https://docs.google.com/forms/d/e/1FAIpQLScpzZMaFy9kKN-oibPM2zM154-YtP1v82v1Rf9oARjOz2r8gg/viewform",
+      icon: "📝",
+    },
   ];
 
   return (
@@ -56,7 +65,15 @@ export default function Footer() {
           {/* ブランドセクション */}
           <div style={brandSectionStyle}>
             <div style={logoSectionStyle}>
-              <h3 style={logoStyle}>Toban</h3>
+              <img 
+                src="/assets/toban-logo-text.svg" 
+                alt="Toban" 
+                style={{
+                  height: "64px",
+                  width: "auto",
+                  marginBottom: "10px"
+                }}
+              />
               <p style={taglineStyle}>
                 いちばん簡単な
                 <br />
@@ -75,16 +92,14 @@ export default function Footer() {
                   <a
                     key={link.id}
                     href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       ...socialLinkStyle,
                       backgroundColor:
                         hoveredLink === link.name
                           ? link.color
                           : "rgba(255, 255, 255, 0.1)",
-                      color:
-                        hoveredLink === link.name
-                          ? "white"
-                          : "rgba(255, 255, 255, 0.8)",
                       transform:
                         hoveredLink === link.name
                           ? "translateY(-2px)"
@@ -93,8 +108,14 @@ export default function Footer() {
                     onMouseEnter={() => setHoveredLink(link.name)}
                     onMouseLeave={() => setHoveredLink(null)}
                   >
-                    <span style={socialIconStyle}>{link.icon}</span>
-                    <span style={socialNameStyle}>{link.name}</span>
+                    <span style={{
+                      ...socialIconStyle,
+                      color: hoveredLink === link.name ? "white" : "rgba(14, 5, 46, 0.8)"
+                    }}>{link.icon}</span>
+                    <span style={{
+                      ...socialNameStyle,
+                      color: hoveredLink === link.name ? "white" : "rgba(14, 5, 46, 0.8)"
+                    }}>{link.name}</span>
                   </a>
                 ))}
               </div>
@@ -113,8 +134,8 @@ export default function Footer() {
                       ...linkStyle,
                       color:
                         hoveredLink === link.name
-                          ? "#60a5fa"
-                          : "rgba(255, 255, 255, 0.8)",
+                          ? ui.Blue
+                          : "rgba(14, 5, 46, 0.8)",
                     }}
                     onMouseEnter={() => setHoveredLink(link.name)}
                     onMouseLeave={() => setHoveredLink(null)}
@@ -138,8 +159,8 @@ export default function Footer() {
                       ...linkStyle,
                       color:
                         hoveredLink === link.name
-                          ? "#60a5fa"
-                          : "rgba(255, 255, 255, 0.8)",
+                          ? ui.Blue
+                          : "rgba(14, 5, 46, 0.8)",
                     }}
                     onMouseEnter={() => setHoveredLink(link.name)}
                     onMouseLeave={() => setHoveredLink(null)}
@@ -161,18 +182,20 @@ export default function Footer() {
                   <div>
                     <div style={contactLabelStyle}>{contact.label}</div>
                     <a
-                      href={`mailto:${contact.value}`}
+                      href={contact.value.startsWith('http') ? contact.value : `mailto:${contact.value}`}
+                      target={contact.value.startsWith('http') ? "_blank" : undefined}
+                      rel={contact.value.startsWith('http') ? "noopener noreferrer" : undefined}
                       style={{
                         ...contactValueStyle,
                         color:
                           hoveredLink === contact.value
-                            ? "#60a5fa"
-                            : "rgba(255, 255, 255, 0.8)",
+                            ? ui.Blue
+                            : "rgba(14, 5, 46, 0.8)",
                       }}
                       onMouseEnter={() => setHoveredLink(contact.value)}
                       onMouseLeave={() => setHoveredLink(null)}
                     >
-                      {contact.value}
+                      {contact.value.startsWith('http') ? 'フォームを開く' : contact.value}
                     </a>
                   </div>
                 </div>
@@ -221,8 +244,8 @@ export default function Footer() {
 }
 
 const footerStyle: React.CSSProperties = {
-  background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
-  color: "white",
+  background: "linear-gradient(135deg, #FEFBF7 0%, #FFF8F6 50%, #E5DBDF 100%)",
+  color: "#0E052E",
   marginTop: "auto",
 };
 
@@ -251,7 +274,7 @@ const logoStyle: React.CSSProperties = {
   fontSize: "2rem",
   fontWeight: "700",
   margin: "0 0 10px 0",
-  background: "linear-gradient(120deg, #60a5fa, #34d399)",
+  background: `linear-gradient(120deg, ${ui.Blue}, ${ui.Green})`,
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   backgroundClip: "text",
@@ -259,7 +282,7 @@ const logoStyle: React.CSSProperties = {
 
 const taglineStyle: React.CSSProperties = {
   fontSize: "1.1rem",
-  color: "rgba(255, 255, 255, 0.9)",
+  color: "rgba(14, 5, 46, 0.9)",
   margin: 0,
   fontWeight: "500",
   lineHeight: 1.4,
@@ -267,7 +290,7 @@ const taglineStyle: React.CSSProperties = {
 
 const descriptionStyle: React.CSSProperties = {
   fontSize: "1rem",
-  color: "rgba(255, 255, 255, 0.7)",
+  color: "rgba(14, 5, 46, 0.7)",
   lineHeight: 1.6,
   margin: "0 0 30px 0",
 };
@@ -279,7 +302,7 @@ const socialSectionStyle: React.CSSProperties = {
 const sectionTitleStyle: React.CSSProperties = {
   fontSize: "1.1rem",
   fontWeight: "600",
-  color: "rgba(255, 255, 255, 0.9)",
+  color: "rgba(14, 5, 46, 0.9)",
   margin: "0 0 20px 0",
   letterSpacing: "0.05em",
 };
@@ -298,7 +321,7 @@ const socialLinkStyle: React.CSSProperties = {
   borderRadius: "12px",
   textDecoration: "none",
   transition: "all 0.3s ease",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
+  border: "1px solid rgba(14, 5, 46, 0.1)",
 };
 
 const socialIconStyle: React.CSSProperties = {
@@ -308,6 +331,7 @@ const socialIconStyle: React.CSSProperties = {
 const socialNameStyle: React.CSSProperties = {
   fontSize: "0.9rem",
   fontWeight: "500",
+  color: "rgba(14, 5, 46, 0.8)",
 };
 
 const linkSectionStyle: React.CSSProperties = {
@@ -327,6 +351,7 @@ const linkStyle: React.CSSProperties = {
   fontSize: "1rem",
   transition: "color 0.3s ease",
   borderBottom: "1px solid transparent",
+  color: "rgba(14, 5, 46, 0.8)",
 };
 
 const contactSectionStyle: React.CSSProperties = {
@@ -351,7 +376,7 @@ const contactIconStyle: React.CSSProperties = {
 
 const contactLabelStyle: React.CSSProperties = {
   fontSize: "0.9rem",
-  color: "rgba(255, 255, 255, 0.6)",
+  color: "rgba(14, 5, 46, 0.6)",
   marginBottom: "4px",
   fontWeight: "500",
 };
@@ -360,19 +385,20 @@ const contactValueStyle: React.CSSProperties = {
   fontSize: "1rem",
   textDecoration: "none",
   transition: "color 0.3s ease",
+  color: "rgba(14, 5, 46, 0.8)",
 };
 
 const newsletterStyle: React.CSSProperties = {
   padding: "25px",
   borderRadius: "16px",
-  background: "rgba(255, 255, 255, 0.05)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
+  background: "rgba(14, 5, 46, 0.05)",
+  border: "1px solid rgba(14, 5, 46, 0.1)",
 };
 
 const newsletterTitleStyle: React.CSSProperties = {
   fontSize: "1rem",
   fontWeight: "600",
-  color: "rgba(255, 255, 255, 0.9)",
+  color: "rgba(14, 5, 46, 0.9)",
   margin: "0 0 15px 0",
 };
 
@@ -385,9 +411,9 @@ const emailInputStyle: React.CSSProperties = {
   flex: 1,
   padding: "12px 16px",
   borderRadius: "8px",
-  border: "1px solid rgba(255, 255, 255, 0.2)",
-  background: "rgba(255, 255, 255, 0.1)",
-  color: "white",
+  border: "1px solid rgba(14, 5, 46, 0.2)",
+  background: "rgba(14, 5, 46, 0.1)",
+  color: "#0E052E",
   fontSize: "0.95rem",
 };
 
@@ -395,7 +421,7 @@ const subscribeButtonStyle: React.CSSProperties = {
   padding: "12px 20px",
   borderRadius: "8px",
   border: "none",
-  background: "#60a5fa",
+  background: ui.Blue,
   color: "white",
   fontSize: "0.95rem",
   fontWeight: "600",
@@ -404,7 +430,7 @@ const subscribeButtonStyle: React.CSSProperties = {
 };
 
 const bottomBarStyle: React.CSSProperties = {
-  borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+  borderTop: "1px solid rgba(14, 5, 46, 0.1)",
   padding: "25px 0",
 };
 
@@ -422,7 +448,7 @@ const copyrightStyle: React.CSSProperties = {
 
 const copyrightTextStyle: React.CSSProperties = {
   fontSize: "0.95rem",
-  color: "rgba(255, 255, 255, 0.6)",
+  color: "rgba(14, 5, 46, 0.6)",
   margin: 0,
 };
 
@@ -441,12 +467,12 @@ const statusIndicatorStyle: React.CSSProperties = {
   width: "8px",
   height: "8px",
   borderRadius: "50%",
-  backgroundColor: "#34d399",
+  backgroundColor: ui.Green,
   animation: "pulse 2s ease-in-out infinite",
 };
 
 const statusTextStyle: React.CSSProperties = {
   fontSize: "0.9rem",
-  color: "rgba(255, 255, 255, 0.7)",
+  color: "rgba(14, 5, 46, 0.7)",
   fontWeight: "500",
 };

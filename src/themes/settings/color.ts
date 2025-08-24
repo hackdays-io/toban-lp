@@ -55,3 +55,15 @@ export const info = {
   Attention: "#FFAA44",
   AttentionLight: "#FFF8DD",
 } as const;
+
+export const social = {
+  GitHub: "#333",
+  Discord: "#5865f2",
+  Twitter: "#1da1f2",
+  YouTube: "#ff0000",
+} as const;
+
+export const ui = {
+  Blue: "#60a5fa",
+  Green: "#34d399",
+} as const;
