@@ -9,36 +9,52 @@ export default function Features() {
 
   const features = [
     {
-      id: "instant-record",
-      title: "即時貢献記録",
-      text: "役割NFTとアシストクレジットで瞬時にログ。",
-      icon: "⚡",
+      id: "real-time-dashboard",
+      title: "リアルタイム可視化ダッシュボード",
+      text: "貢献スコア推移、累計報酬、役割ヒートマップ",
+      icon: "📊",
       color: "#ff6b6b",
       detailColor: "#ff5252",
     },
     {
-      id: "auto-distribution",
-      title: "自動報酬分配",
-      text: "複雑な計算もスマートコントラクトが実行。",
-      icon: "🤖",
+      id: "role-based-permissions",
+      title: "ロールベース権限管理",
+      text: "Hats Protocol による可撤回・階層型ロール",
+      icon: "🎩",
       color: "#4ecdc4",
       detailColor: "#26c6da",
     },
     {
-      id: "history-dashboard",
-      title: "履歴ダッシュボード",
-      text: "過去の活動と分配履歴を一元管理。",
-      icon: "📊",
+      id: "onchain-splits",
+      title: "完全オンチェーン Splits 配信",
+      text: "ガス最適化済み、監査・ハイパーストラクチャ",
+      icon: "💰",
       color: "#45b7d1",
       detailColor: "#42a5f5",
     },
     {
-      id: "api-integration",
-      title: "API連携",
-      text: "既存ツールとの連携も簡単。",
-      icon: "🔗",
+      id: "human-readable-addresses",
+      title: "人に優しいアドレス",
+      text: "ENS 連携で `community.eth` に直接送金",
+      icon: "🏷️",
       color: "#96c93d",
       detailColor: "#8bc34a",
+    },
+    {
+      id: "api-export",
+      title: "API & Export",
+      text: "REST / GraphQL、CSV、Webhook",
+      icon: "🔗",
+      color: "#f39c12",
+      detailColor: "#e67e22",
+    },
+    {
+      id: "self-custody-mode",
+      title: "自己責任モード",
+      text: "カストディアルでないため鍵管理はユーザー責任。利用規約リンクを明記。",
+      icon: "🔐",
+      color: "#9b59b6",
+      detailColor: "#8e44ad",
     },
   ];
 
@@ -71,7 +87,7 @@ export default function Features() {
           <h2 style={titleStyle}>
             <span style={highlightStyle}>主な機能</span>ハイライト
           </h2>
-          <p style={subtitleStyle}>プロジェクト運営を革新する4つの核心機能</p>
+          <p style={subtitleStyle}>プロジェクト運営を革新する6つの核心機能</p>
         </div>
 
         <div style={gridStyle}>
