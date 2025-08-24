@@ -10,8 +10,20 @@ export default function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const socialLinks = [
-    { id: "github", name: "GitHub", icon: <FaGithub />, url: "https://github.com/hackdays-io/toban-lp", color: social.GitHub },
-    { id: "discord", name: "Discord", icon: <FaDiscord />, url: "https://discord.com/channels/979969380802777169/1277777126359302220", color: social.Discord },
+    {
+      id: "github",
+      name: "GitHub",
+      icon: <FaGithub />,
+      url: "https://github.com/hackdays-io/toban-lp",
+      color: social.GitHub,
+    },
+    {
+      id: "discord",
+      name: "Discord",
+      icon: <FaDiscord />,
+      url: "https://discord.com/channels/979969380802777169/1277777126359302220",
+      color: social.Discord,
+    },
     {
       id: "twitter",
       name: "X (Twitter)",
@@ -19,11 +31,21 @@ export default function Footer() {
       url: "https://x.com/0xtoban",
       color: social.Twitter,
     },
-    { id: "youtube", name: "YouTube", icon: <FaYoutube />, url: "https://www.youtube.com/watch?v=jFjxNSHiCBI", color: social.YouTube },
+    {
+      id: "youtube",
+      name: "YouTube",
+      icon: <FaYoutube />,
+      url: "https://www.youtube.com/watch?v=jFjxNSHiCBI",
+      color: social.YouTube,
+    },
   ];
 
   const quickLinks = [
-    { id: "docs", name: "ドキュメント", url: "https://hackdays-io.github.io/toban/docs/welcome" },
+    {
+      id: "docs",
+      name: "ドキュメント",
+      url: "https://hackdays-io.github.io/toban/docs/welcome",
+    },
     { id: "api", name: "API リファレンス", url: "#" },
     { id: "tutorial", name: "チュートリアル", url: "#" },
     { id: "community", name: "コミュニティ", url: "#" },
@@ -52,7 +74,8 @@ export default function Footer() {
     {
       id: "contact-form",
       label: "お問い合わせフォーム",
-      value: "https://docs.google.com/forms/d/e/1FAIpQLScpzZMaFy9kKN-oibPM2zM154-YtP1v82v1Rf9oARjOz2r8gg/viewform",
+      value:
+        "https://docs.google.com/forms/d/e/1FAIpQLScpzZMaFy9kKN-oibPM2zM154-YtP1v82v1Rf9oARjOz2r8gg/viewform",
       icon: "📝",
     },
   ];
@@ -65,13 +88,13 @@ export default function Footer() {
           {/* ブランドセクション */}
           <div style={brandSectionStyle}>
             <div style={logoSectionStyle}>
-              <img 
-                src="/assets/toban-logo-text.svg" 
-                alt="Toban" 
+              <img
+                src="/assets/toban-logo-text.svg"
+                alt="Toban"
                 style={{
                   height: "64px",
                   width: "auto",
-                  marginBottom: "10px"
+                  marginBottom: "10px",
                 }}
               />
               <p style={taglineStyle}>
@@ -108,14 +131,28 @@ export default function Footer() {
                     onMouseEnter={() => setHoveredLink(link.name)}
                     onMouseLeave={() => setHoveredLink(null)}
                   >
-                    <span style={{
-                      ...socialIconStyle,
-                      color: hoveredLink === link.name ? "white" : "rgba(14, 5, 46, 0.8)"
-                    }}>{link.icon}</span>
-                    <span style={{
-                      ...socialNameStyle,
-                      color: hoveredLink === link.name ? "white" : "rgba(14, 5, 46, 0.8)"
-                    }}>{link.name}</span>
+                    <span
+                      style={{
+                        ...socialIconStyle,
+                        color:
+                          hoveredLink === link.name
+                            ? "white"
+                            : "rgba(14, 5, 46, 0.8)",
+                      }}
+                    >
+                      {link.icon}
+                    </span>
+                    <span
+                      style={{
+                        ...socialNameStyle,
+                        color:
+                          hoveredLink === link.name
+                            ? "white"
+                            : "rgba(14, 5, 46, 0.8)",
+                      }}
+                    >
+                      {link.name}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -182,9 +219,19 @@ export default function Footer() {
                   <div>
                     <div style={contactLabelStyle}>{contact.label}</div>
                     <a
-                      href={contact.value.startsWith('http') ? contact.value : `mailto:${contact.value}`}
-                      target={contact.value.startsWith('http') ? "_blank" : undefined}
-                      rel={contact.value.startsWith('http') ? "noopener noreferrer" : undefined}
+                      href={
+                        contact.value.startsWith("http")
+                          ? contact.value
+                          : `mailto:${contact.value}`
+                      }
+                      target={
+                        contact.value.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        contact.value.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                       style={{
                         ...contactValueStyle,
                         color:
@@ -195,7 +242,9 @@ export default function Footer() {
                       onMouseEnter={() => setHoveredLink(contact.value)}
                       onMouseLeave={() => setHoveredLink(null)}
                     >
-                      {contact.value.startsWith('http') ? 'フォームを開く' : contact.value}
+                      {contact.value.startsWith("http")
+                        ? "フォームを開く"
+                        : contact.value}
                     </a>
                   </div>
                 </div>

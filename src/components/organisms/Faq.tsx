@@ -47,7 +47,8 @@ export default function Faq() {
     {
       id: "community-types",
       question: "どんなコミュニティに向いていますか？",
-      answer: "自治体・企業・NPO・地域団体・オンラインサロンなど、大小さまざまなコミュニティに対応可能です。",
+      answer:
+        "自治体・企業・NPO・地域団体・オンラインサロンなど、大小さまざまなコミュニティに対応可能です。",
       detailedAnswer:
         "特に「貢献を見える化して公平に報酬や感謝を伝えたい」場面で効果を発揮します。",
       icon: "🏘️",
@@ -56,9 +57,9 @@ export default function Faq() {
     {
       id: "data-usage",
       question: "活動データはどのように活用できますか？",
-      answer: "貢献ログはTobanのダッシュボードで集計・可視化され、助成金申請や活動報告、企業のROI測定などに活用できます。",
-      detailedAnswer:
-        "透明で信頼できるデータとして第三者にも提示可能です。",
+      answer:
+        "貢献ログはTobanのダッシュボードで集計・可視化され、助成金申請や活動報告、企業のROI測定などに活用できます。",
+      detailedAnswer: "透明で信頼できるデータとして第三者にも提示可能です。",
       icon: "📊",
       color: "#06b6d4",
     },
@@ -199,22 +200,22 @@ export default function Faq() {
             お気軽にお問い合わせください。コミュニティでお待ちしています。
           </p>
           <div style={supportButtonsStyle}>
-            <a 
-              href="https://discord.com/channels/979969380802777169/1277777126359302220" 
-              target="_blank" 
+            <a
+              href="https://discord.com/channels/979969380802777169/1277777126359302220"
+              target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
             >
               <button type="button" style={primarySupportButtonStyle}>
                 <span style={supportButtonIconStyle}>💬</span>
                 Discordで質問する
               </button>
             </a>
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLScpzZMaFy9kKN-oibPM2zM154-YtP1v82v1Rf9oARjOz2r8gg/viewform" 
-              target="_blank" 
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScpzZMaFy9kKN-oibPM2zM154-YtP1v82v1Rf9oARjOz2r8gg/viewform"
+              target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
             >
               <button type="button" style={secondarySupportButtonStyle}>
                 📧 メールで問い合わせ

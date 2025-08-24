@@ -220,9 +220,9 @@ export default function GettingStarted() {
                 <span style={ctaButtonIconStyle}>🚀</span>
                 今すぐ始める
               </a>
-              <a 
-                href="https://hackdays-io.github.io/toban/docs/welcome" 
-                target="_blank" 
+              <a
+                href="https://hackdays-io.github.io/toban/docs/welcome"
+                target="_blank"
                 rel="noopener noreferrer"
                 style={secondaryCtaButtonStyle}
               >
